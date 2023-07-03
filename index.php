@@ -5,18 +5,43 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>HBLZ</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/modern-normalize/1.1.0/modern-normalize.min.css" />
     <link rel="stylesheet" href="styles.css" />
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
-<?php
- require "connection.php";
- ?>
+
 
 <?php
+if (isset($_GET['get_year'])) {
+    $selectedYear = $_GET['get_year'];
+    // Utilisez la valeur sélectionnée pour construire votre requête SQL
+    $query = "SELECT nom, CAST(avg(valeur) AS numeric(10,3)) FROM prix
+              JOIN carburant c ON c.id = prix.carburant_id
+              WHERE EXTRACT(year FROM date) = $selectedYear GROUP BY nom";
+    $results = request($conn, $query);
+
+    $price = array();
+    $fuel = array();
+
+    foreach ($results as $data) {
+        $price[] = $data['avg'];
+        $fuel[] = $data['nom'];
+    }
+}
+?>
+
+
+
+<?php
+ require "connection.php";
+
+if (isset($_GET['get_year'])) {
+    $selectedYear = $_GET['get_year'];
+
 $query = "SELECT nom, CAST(avg(valeur) AS numeric(10,3)) FROM  prix
 JOIN carburant c on c.id = prix.carburant_id
-WHERE  date > '2006-12-31 0:00:00' AND date <= '2007-12-31 23:59:59' GROUP BY nom;";
+WHERE  EXTRACT(year FROM date) = $selectedYear GROUP BY nom";
 $results = request($conn, $query);
 
 foreach ($results as $data)
@@ -24,7 +49,9 @@ foreach ($results as $data)
     $price[] = $data ['avg'];
     $fuel[] = $data ['nom'];
 }
+}
 ?>
+
 
 <body>
 
@@ -49,8 +76,8 @@ foreach ($results as $data)
         <div class="container">
             <p class="text-acuil"> Bienvenue sur notre site dédié à l'information sur le coût du carburant. Nous sommes ici pour vous tenir informé des dernières évolutions et tendances en matière de prix afin de vous aider à prendre des décisions pour votre budget et vos déplacements. </p>
         </div>
-        
     </div>
+
     <div class="map">
      <section class="container">
         <p class="text_map">Veuillez choisir les informations désirées parmi les options disponibles dans les listes déroulantes.</p>
@@ -78,9 +105,10 @@ foreach ($results as $data)
                 <option value="js">JavaScript</option>
                </select>
             </form>
-         <!-- -------------------------------------------->
      </section>
     </div>
+
+
     <!-------------------- courbe  ---------------------->
     <div class="courbe">
     <section class="container">
@@ -95,7 +123,28 @@ foreach ($results as $data)
 
     <div class="courbe">
         <section class="container">
-            <p class="title" #bt >Graphique en bâton représentant le prix moyen des 6 types de carburant </p>
+            <p class="title">Graphique en bâton représentant le prix moyen des 6 types de carburant </p>
+
+            <form method=post action=add_event.php id=testForm>
+                <button class="b-10" type="button">
+                    Ok
+                </button>
+                <select class="s-10">
+                    <option value="service">Année: </option>
+                    <option value="2007">2007</option>
+                    <option value="2014">2014</option>
+                    <option value="2023">2023</option>
+                </select>
+                <div class="out-block out-10"></div>
+            </form>
+            <script>
+                document.querySelector('.b-10').addEventListener('click', () => {
+                    let data = document.querySelector('.s-10').value;
+                    document.querySelector('.out-10').innerHTML = data;
+                });
+            </script>
+
+
             <div class="baton">
                 <canvas id="myChart"></canvas>
             </div>
@@ -114,16 +163,16 @@ foreach ($results as $data)
          const data = {
              labels: labels,
              datasets: [{
-                 label: '2007',
+                 label: '',
                  data: <?php echo json_encode($price) ?>,
                  backgroundColor: [
-                     'rgba(255, 99, 132, 0.2)',
-                     'rgba(255, 159, 64, 0.2)',
-                     'rgba(98,236,20,0.2)',
-                     'rgba(75, 192, 192, 0.2)',
-                     'rgba(54, 162, 235, 0.2)',
-                     'rgba(153, 102, 255, 0.2)',
-                     'rgba(201, 203, 207, 0.2)'
+                     'rgba(255, 99, 132, 0.3)',
+                     'rgba(255, 159, 64, 0.3)',
+                     'rgba(98,236,20,0.3)',
+                     'rgba(75, 192, 192, 0.3)',
+                     'rgba(54, 162, 235, 0.3)',
+                     'rgba(153, 102, 255, 0.3)',
+                     'rgba(201, 203, 207, 0.3)'
                  ],
                  borderColor: [
                      'rgb(255, 99, 132)',
@@ -155,5 +204,6 @@ foreach ($results as $data)
              config
          );
      </script>
+     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
 </body>
 </html>

@@ -1,8 +1,6 @@
 body {
     font-family: 'Roboto', sans-serif;
     letter-spacing: 0.02em;
-    background-color: var(--first-background-color);
-    color: var(--first-color);
   }
   
   h1,
@@ -158,3 +156,13 @@ line-height: 27px;
   max-width: 900px;
 }
 
+.button {
+  fill: red;
+}
+
+
+.out-block{
+  width: 400px;
+  height: 200px;
+  background-color: #FFFFFF;
+}

@@ -8,7 +8,7 @@ services:
     environment:
       POSTGRES_PASSWORD: password
       POSTGRES_USER: postgres
-      POSTGRES_DB: fuel-dataviz
+      POSTGRES_DB: postgres
 
   adminer:
     image: adminer:4.8.1
