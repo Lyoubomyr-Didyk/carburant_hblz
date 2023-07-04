@@ -13,11 +13,11 @@ body {
     margin-bottom: 0;
   }
 
-  img {
-    display: block;
-    max-width: 100%;
-    height: auto;
-  }
+  /*img {*/
+  /*  display: block;*/
+  /*  max-width: 100%;*/
+  /*  height: auto;*/
+  /*}*/
   
   .list {
     list-style: none;
@@ -126,9 +126,9 @@ body {
 
 
 .courbe{
-  padding-top: 50px;
-  padding-bottom: 50px;
-  background-color: #050409
+  padding-top: 70px;
+  padding-bottom: 70px;
+  background-color: #050409;
 }
 
 .title{
@@ -137,32 +137,26 @@ body {
   text-shadow: 4px 3px 7px #17D4FD;
   font-size: 20px;
   font-family: Inter;
+  margin-bottom: 50px;
 }
 
 .text_p{
-  color: rgba(255, 255, 255, 0.83);
-text-align: center;
-font-size: 20px;
-font-family: Inter;
-line-height: 27px;
+  color: rgba(255, 255, 255, 0.7);
+  text-align: center;
+  font-size: 18px;
+  font-family: Inter;
+  line-height: 27px;
 }
 
 .text_bottom{
   margin-top: 30px;
 }
 
-.baton{
-  margin: 30px auto 0px;
-  max-width: 900px;
+.zack-job{
+  max-width: 800px;
+  margin-bottom: 70px;
 }
-
-.button {
-  fill: red;
-}
-
-
-.out-block{
-  width: 400px;
-  height: 200px;
-  background-color: #FFFFFF;
-}
+/*.baton{*/
+/*  margin: 30px auto 0px;*/
+/*  max-width: 900px;*/
+/*}*/
