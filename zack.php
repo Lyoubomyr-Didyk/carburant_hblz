@@ -23,7 +23,7 @@ foreach ($query02 as $data2)
 ?>
 
 <div>
-    <canvas class="container zack-job" id="chap"></canvas>
+    <canvas class="container zack-job graph" id="chap"></canvas>
 <!--    <button id="btn-2007" onclick="updateYear('2007')">2007</button>-->
 <!--    <button id="btn-2013" onclick="updateYear('2014')">2014</button>-->
 <!--    <button id="btn-2023" onclick="updateYear('2023')">2023</button>-->

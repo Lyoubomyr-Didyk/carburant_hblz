@@ -11,6 +11,17 @@
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <link rel="" href="chart.js">
 
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Sofia+Sans+Condensed:wght@1;400;700&display=swap"
+          rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+          integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin=""/>
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+            integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+
 </head>
 
 
@@ -43,9 +54,10 @@
         </div>
     </div>
 
-    <div class="map">
+    <div class="map back-gr">
         <section class="container" id="part1">
             <p class="text_map">Veuillez choisir les informations désirées parmi les options disponibles dans les listes déroulantes.</p>
+
             <form>
                 <button type="button">ok</button>
                 <select>
@@ -64,12 +76,15 @@
                     <option value="Lavage manuel">Lavage manuel</option>
                 </select>
             </form>
+            <?php
+            require "hicham.php";
+            ?>
         </section>
     </div>
 
 
     <!-------------------------------------------------- courbe  ------------------------------------------------------>
-    <div class="courbe" id="part2">
+    <div class="back-gr" id="part2">
         <section class="container">
             <p class="title">Evolution du prix des carburants de 2007 à 2023</p>
 
@@ -85,7 +100,7 @@
 
     <!--------------------------------------------------- batons  ----------------------------------------------------->
 
-    <div class="courbe">
+    <div class="back-gr">
         <section class="container" id="part3">
             <p class="title">Graphique en bâton représentant le prix moyen des différents types de carburant </p>
             <?php
@@ -96,10 +111,30 @@
 </main>
 
 <!-------------------------------------------------------- footer ----------------------------------------------------->
-<footer>
-
+<footer class="footer back-gr">
+    <div class="container footer-space">
+        <svg width="73" height="106" class="logo-footer">
+            <use href="./img/sprite.svg#icon-logo"></use>
+        </svg>
+        <a class="link space" href="https://twitter.com/" target="_blank">
+            <svg width="46" height="46" class="">
+                <use href="./img/sprite.svg#icon-twitter"></use>
+            </svg>
+            <p class="text" >@HBLZdata</p>
+        </a>
+        <a class="link space" href="mailto:info@devstudio.com" target="_blank">
+            <svg width="45" height="45" class="icon-mail">
+                <use href="./img/sprite.svg#icon-email"></use>
+            </svg>
+            <p class="text">HBLZgroup@gmail.com</p>
+        </a>
+        <p class="text data " style="color: #FFFFFF">@ HBLZ Data</p>
+    </div>
 </footer>
 
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+        integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+        crossorigin=""></script>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
 </body>

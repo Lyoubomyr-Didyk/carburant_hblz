@@ -35,7 +35,7 @@ foreach ($query3 as $data3)
 }
 ?>
 
-<div class="container" style="width: 800px;">
+<div class="container graph" >
 <canvas id="barCanvasE10" aria-label="chart" role="img"></canvas>
 </div>
 
