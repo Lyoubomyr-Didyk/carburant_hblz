@@ -59,16 +59,19 @@
             <p class="text_map">Veuillez choisir les informations désirées parmi les options disponibles dans les listes déroulantes.</p>
 
             <form>
-                <button type="button">ok</button>
-                <select>
+                    <svg width="36" height="33" class="" type="button" >
+                        <use href="./img/sprite.svg#icon-btn"></use>
+                    </svg>
+
+                <select class="select">
                     <option value="service">Carburant</option>
                     <option value="Gazole">Gazole</option>
                     <option value="SP95">SP95</option>
                     <option value="SP98">SP98</option>
                     <option value="E10">E10</option>
                     <option value="E85">E85</option>
-                </select>
-                <select>
+                </select >
+                <select class=select>
                     <option value="service">Service</option>
                     <option value="Station de gonflage">Station de gonflage</option>
                     <option value="Vente de gaz domestique">Vente de gaz</option>
@@ -111,7 +114,7 @@
 </main>
 
 <!-------------------------------------------------------- footer ----------------------------------------------------->
-<footer class="footer back-gr">
+<footer class="footer back">
     <div class="container footer-space">
         <svg width="73" height="106" class="logo-footer">
             <use href="./img/sprite.svg#icon-logo"></use>

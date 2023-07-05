@@ -83,8 +83,10 @@ body {
     color: white;
     font-size: 19px;
     font-family: Inter;
-    line-height: 16px; 
-
+    line-height: 16px;
+  }
+  .nav_link:hover{
+   color: rgba(30, 207, 246, 1);
   }
 
   .nav_item{
@@ -183,6 +185,7 @@ body {
 .footer-space{
   display: flex;
   align-items: center;
+  padding-bottom: 30px;
 }
 
 .space{
@@ -210,4 +213,29 @@ body {
   font-family: Inter;
   line-height: 16px;
   margin-left: 60px;
+}
+
+.select{
+  max-width: 200px;
+  height: 30px;
+  flex-shrink: 0;
+  border-radius: 15px 0 15px 0;
+  border: 2px solid #17D4FD;
+  background-color: #2C2D33;
+  color: #FFFFFF;
+}
+.select:not(:last-child){
+  margin-right: 20px;
+}
+
+.back{
+  background: hsla(252, 38%, 3%, 1);
+
+  background: linear-gradient(270deg, hsla(252, 38%, 3%, 1) 51%, hsla(191, 98%, 54%, 1) 100%);
+
+  background: -moz-linear-gradient(270deg, hsla(252, 38%, 3%, 1) 51%, hsla(191, 98%, 54%, 1) 100%);
+
+  background: -webkit-linear-gradient(270deg, hsla(252, 38%, 3%, 1) 51%, hsla(191, 98%, 54%, 1) 100%);
+
+  filter: progid: DXImageTransform.Microsoft.gradient( startColorstr="#050409", endColorstr="#17D4FD", GradientType=1 );
 }
